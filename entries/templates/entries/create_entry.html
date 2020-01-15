@@ -1,0 +1,67 @@
+{% extends "entries/base.html" %}
+{% block content %}
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
+        <h1 class="my-4">Welcome to sayon blog
+          <small>Travel</small>
+        </h1>
+        <!-- Blog Post
+        <div class="card mb-4">
+          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+          <div class="card-body">
+            <h2 class="card-title">Post Title</h2>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+            <a href="#" class="btn btn-primary">Read More &rarr;</a>
+          </div>
+          <div class="card-footer text-muted">
+            Posted on January 1, 2017 by
+            <a href="#">Start Bootstrap</a>
+          </div>
+        </div>
+    -->
+        <!-- Blog Post 
+        <div class="card mb-4">
+          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+          <div class="card-body">
+            <h2 class="card-title">Post Title</h2>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+            <a href="#" class="btn btn-primary">Read More &rarr;</a>
+          </div>
+          <div class="card-footer text-muted">
+            Posted on January 1, 2017 by
+            <a href="#">{{ entry.entry_author}}</a>
+          </div>
+        </div>
+-->
+        <!-- Blog Post -->
+        <div class="card mb-4">
+          <img class="card-img-top" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.discoverhongkong.com%2Fca%2Fimages%2Fshop%2Fwhere-to-shop%2Flarge%2F3.2.2.11-Gold-Coast-Piazza_03.jpg&f=1&nofb=1" alt="Card image cap">
+          <div class="card-header">
+              Create Blog Post
+            <!--<h2 class="card-title">{{ object.entry_title}}</h2>
+            <p class="card-text">{{object.entry_text }}</p>
+            <a href="{% url 'entry-detail' entry.pk %}" class="btn btn-primary">
+                Read More &rarr;</a>-->
+          </div>
+          <div class="card-body">
+          <form method="POST">
+              {% csrf_token %}
+              {{form}}
+              <button type="submit" class = "btn btn-primary">Post Entry</button>
+          </form> 
+        
+        </div>
+        </div>
+       
+        <!-- Pagination -->
+        <ul class="pagination justify-content-center mb-4">
+          <li class="page-item">
+            <a class="page-link" href="#">&larr; Older</a>
+          </li>
+          <li class="page-item disabled">
+            <a class="page-link" href="#">Newer &rarr;</a>
+          </li>
+        </ul>
+
+      </div>
+      {% endblock %}
