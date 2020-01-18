@@ -6,7 +6,7 @@
           <small>Secondary Text</small>
         </h1>
         {% for entry in blog_entries %}
-        <!-- Blog Post -->
+        <!-- Blog Post 
         <div class="card mb-4">
           <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
           <div class="card-body">
@@ -18,9 +18,9 @@
             Posted on January 1, 2017 by
             <a href="#">Start Bootstrap</a>
           </div>
-        </div>
+        </div>-->
 
-        <!-- Blog Post -->
+        <!-- Blog Post 
         <div class="card mb-4">
           <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
           <div class="card-body">
@@ -33,7 +33,7 @@
             <a href="#">{{ entry.entry_author}}</a>
           </div>
         </div>
-
+-->
         <!-- Blog Post -->
         <div class="card mb-4">
           <img class="card-img-top" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.discoverhongkong.com%2Fca%2Fimages%2Fshop%2Fwhere-to-shop%2Flarge%2F3.2.2.11-Gold-Coast-Piazza_03.jpg&f=1&nofb=1" alt="Card image cap">
@@ -48,15 +48,22 @@
         </div>
         </div>
         {% endfor %}
+
+        {% if is_paginated %}
         <!-- Pagination -->
         <ul class="pagination justify-content-center mb-4">
+          {% if page_obj.has_previous %}
           <li class="page-item">
-            <a class="page-link" href="#">&larr; Older</a>
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&larr; Previous</a>
           </li>
+          {% endif %}
+          {% if page_obj.has_next %}
+          
           <li class="page-item disabled">
-            <a class="page-link" href="#">Newer &rarr;</a>
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next &rarr;</a>
           </li>
-        </ul>
-
+          {% endif %}
+        </ul> 
+         {% endif %}
       </div>
       {% endblock %}

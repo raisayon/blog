@@ -8,6 +8,8 @@ class HomeView(ListView):
     model = Entry
     template_name = 'entries/index.html'
     context_object_name = "blog_entries"
+    ordering = ['-entry_date']
+    pagination_by = 3
 
 class EntryView(DetailView):
     model = Entry 
@@ -18,3 +20,6 @@ class CreateEntryView(CreateView):
     template_name = 'entries/create_entry.html'
     fields = ['entry_title','entry_text']
 
+    def form_valid(self,form):
+        form.instance.entry_author = self.request.user
+        return super().form_valid(form)

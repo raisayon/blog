@@ -1,0 +1,30 @@
+{% extends "entries/base.html" %}
+{% block content %}
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
+        <h1 class="my-4">Welcome to sayon blog
+          <small>Create an account</small>
+        </h1>
+        <!-- Blog Post -->
+        <div class="card mb-4">
+          <img class="card-img-top" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.discoverhongkong.com%2Fca%2Fimages%2Fshop%2Fwhere-to-shop%2Flarge%2F3.2.2.11-Gold-Coast-Piazza_03.jpg&f=1&nofb=1" alt="Card image cap">
+          <div class="card-header">
+              Create an account
+            <!--<h2 class="card-title">{{ object.entry_title}}</h2>
+            <p class="card-text">{{object.entry_text }}</p>
+            <a href="{% url 'entry-detail' entry.pk %}" class="btn btn-primary">
+                Read More &rarr;</a>-->
+          </div>
+          <div class="card-body">
+          <form method="POST">
+              {% csrf_token %}
+              {{form.as_p}}
+              <button type="submit" class = "btn btn-primary">Create Account</button>
+          </form> 
+        
+        </div>
+        </div>
+       
+
+      </div>
+      {% endblock %}
